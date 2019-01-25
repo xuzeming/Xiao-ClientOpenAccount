@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>身份证上传</title>
+
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+<script type="text/javascript" src="/Xiao-ClientOpenAccount/js/getUrlParam.js"></script>
+<script type="text/javascript" src="/Xiao-ClientOpenAccount/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+	var id=UrlParm.parm("id");
+	$(function(){
+			$("#id").val(id);
+	})		
+</script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<div class="row">
+				<div class="col-lg-2">
+					<img alt="logo" src="img/logo.png"
+						class="img-responsive">
+				</div>
+				<div class="col-lg-2">
+					<h5 class="text-success">身份证提交</h5>
+				</div>
+			</div>
+		</div>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实名认证
+			<span class="text-danger">(实名认证一经通过，后续付款方的银行开户名必须与晓组织实名信息一致，否则不给予入账！）</span></p>
+		<div class="row">
+			<div class="col-lg-1">
+				<img alt="logo" src="img/identity-photo.png" class="img-responsive ">
+			</div>
+			<div class="col-lg-2">
+				<h3>基本信息填写</h3>
+			</div>
+		</div>
+		<p></p>
+		<form action="http://10.1.13.155:8080/Xiao-ClientOpenAccount/uploadIdentify.action" role="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label class="col-lg-2 control-label">姓名</label>
+				<div class="col-lg-4">
+					<input type="text" name="name" placeholder="姓名" class="form-control" required oninvalid="setCustomValidity('请输入您的姓名');" oninput="setCustomValidity('');" >
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">身份证号码</label>
+				<div class="col-lg-4">
+					<input type="text" id="identityNo" name="identityNo" placeholder="请输入18位身份证号" class="form-control"  pattern="(^\d{15}$)|(^\d{17}([0-9]|X|x)$)" required >
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">身份证正面</label>
+				<div class="col-lg-4">
+					<label>选择文件</label>
+					<input type="file" name="uploadFile" required="required">
+					<p class="help-block">图片大小不要超过2M，支持PNG,JPG格式</p>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">身份证反面</label>
+				<div class="col-lg-4">
+					<label>选择文件</label>
+					<input type="file" name="uploadFile" required="required">
+					<p class="help-block">图片大小不要超过2M，支持PNG,JPG格式</p>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 sr-only">提交认证</label>
+				<div class="col-lg-2 col-lg-offset-3">
+					<input type="hidden" name="id" id="id" value="">
+					<input type="submit" value="提交认证" class="form-control btn btn-success">
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<label class="col-lg-1 col-lg-offset-1 control-label">示例图片</label>
+			<div class="col-lg-10">
+				<img alt="logo" src="img/1547697213.png" class="img-responsive ">
+			</div>
+		</div>
+		<div class="row">
+			<label class="col-lg-1 col-lg-offset-1 control-label">认证说明</label>
+			<div class="col-lg-10">
+			<p class="text-warning">用户在使用晓组织证券完成应用或网站开发并上线，可提交认证审核。开发期间（2个月），未审核的应用并不影响接口的调用；
+				为了使晓组织证券更了解开发者的实际使用场景，为后续提供更好更优质的服务，请各开发者完善开发的应用的基本信息；
+				申请的数据需要在2个月内提交审核并通过，否则将无法正常请求数据，如需延长期限请与在线客服联系。</p>
+			</div>
+		</div>
+		<div class="page-bottom">
+			<div class="row">
+				<label class="col-lg-4 sr-only">尾部</label>
+				<div class="col-lg-8 col-lg-offset-2">
+					<p class="text-center">版权所有 @ 2019晓证券股份有限公司版权所有</p>
+					<p class="text-center">All Rights Reserved @ 2019 Xiao Securities Co., Ltd. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	identityNo.oninput=function(){
+		identityNo.setCustomValidity("");
+	};
+	identityNo.oninvalid=function(){
+		identityNo.setCustomValidity("请您输入正确的身份证号码");
+	};
+</script>
+</body>
+</html>

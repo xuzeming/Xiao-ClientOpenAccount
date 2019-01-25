@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.SZStockAccountMapper">
+
+	<insert id="insertSZStockAccount" parameterType="SzStockAccount">
+		insert into  SZ_Stock_Account(sz_account_num,user_id,Identification_Id) values(sq_sz_number.nextval,#{userId},#{identificationId}) 
+	</insert>
+	
+</mapper>	

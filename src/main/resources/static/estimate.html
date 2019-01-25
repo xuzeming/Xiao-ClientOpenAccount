@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>风险评估调查问卷</title>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<script src="http://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+<style type="text/css">
+.row {
+	margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<div id="box">
+	<div class="container">
+		<div class="page-header">
+			<div class="row">
+				<div class="col-lg-2">
+					<img alt="logo" src="img/logo.png"
+						class="img-responsive">
+				</div>
+				<div class="col-lg-2">
+					<h5 class="text-success">风险评估调查问卷</h5>
+				</div>
+			</div>
+		</div>
+		<div class="page-body">
+			<div class="row">
+				<label class="sr-only"></label>
+				<fieldset class="col-lg-8 col-lg-offset-2 ">
+				<h4 class="help-block text-danger">您好，非常感谢您能在百忙之中抽出时间来完成这份问卷。此问卷不会涉及到任何私人问题，只是作者对银行业信用风险的一点关注，本问 卷分为两大部分，完成本问卷只需要您3-5分钟，最后再次真诚的感谢您的支持！</h4>
+				</fieldset>
+			</div>
+			<form action="http://10.1.13.155:8080/Xiao-ClientOpenAccount/saveEstimateScore.action" class="form-horizonbel" method="post">
+				<div class="col-lg-offset-2">
+					<span class="text-warning"><strong>1. 您的年龄介于</strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="one" value="2"> A. 55岁以上</li>
+						<li><input type="radio" name="one" value="4"> B. 45-55岁</li>
+						<li><input type="radio" name="one" value="6"> C. 30-45岁</li>
+						<li><input type="radio" name="one" value="8"> D. 30岁以下</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">
+					<span class="text-warning"><strong>2. 您的家庭总资产净值为（折合人民币）？（不包括自用住宅和私营企业等实业投资，包括储蓄、保险、金融投资、实物投资，并需扣除未结清贷款、信用卡账单等债务） </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="two" value="2"> A. 15万元及以下</li>
+						<li><input type="radio" name="two" value="4"> B. 15万元（不含）-50万元（含）</li>
+						<li><input type="radio" name="two" value="6"> C. 50万元（不含）-100万元（含）</li>
+						<li><input type="radio" name="two" value="8"> D. 100万元（不含）-1000万元（含）</li>
+						<li><input type="radio" name="two" value="10"> E. 1000万元（不含）以上</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">
+					<span class="text-warning"><strong>3. 在您的家庭总资产净值中，可用于金融投资（储蓄存款除外）的比例为？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="three" value="2"> A. 小于10%</li>
+						<li><input type="radio" name="three" value="4"> B. 10%至25%</li>
+						<li><input type="radio" name="three" value="6"> C. 25%至50%</li>
+						<li><input type="radio" name="three" value="8"> D. 大于50%</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>4. 以下哪项最能说明您的投资经验？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="four" value="2"> A. 除存款、国债外，我几乎不投资其他金融产品</li>
+						<li><input type="radio" name="four" value="4"> B. 大部分投资于存款、国债等，较少投资于股票、基金等风险产品</li>
+						<li><input type="radio" name="four" value="6"> C. 资产均衡地分布于存款、国债、银行理财产品、信托产品、股票、基金等</li>
+						<li><input type="radio" name="four" value="8"> D. 大部分投资于股票、基金、外汇等高风险产品，较少投资于存款、国债</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>5. 您有多少年投资股票、基金、外汇、金融衍生产品等风险投资品的经验？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="five" value="2"> A. 没有经验</li>
+						<li><input type="radio" name="five" value="4"> B. 有经验，但少于2年</li>
+						<li><input type="radio" name="five" value="6"> C. 2至5年</li>
+						<li><input type="radio" name="five" value="8"> D. 5至8年</li>
+						<li><input type="radio" name="five" value="10"> E. 8年以上</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>6. 以下哪项描述最符合您的投资态度？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="six" value="2"> A. 厌恶风险，不希望本金损失，希望获得稳定回报</li>
+						<li><input type="radio" name="six" value="4"> B. 保守投资，不希望本金损失，愿意承担一定幅度的收益波动</li>
+						<li><input type="radio" name="six" value="6"> C. 寻求资金的较高收益和成长性，愿意为此承担有限本金损失</li>
+						<li><input type="radio" name="six" value="8"> D. 希望赚取高回报，愿意为此承担较大本金损失</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>7. 本金100万元，不提供保本承诺的情况下，您会选择哪一种投资机会？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="seven" value="2"> A. 有100%的机会赢取1000元现金，并保证归还</li>
+						<li><input type="radio" name="seven" value="4"> B. 有50%的机会赢取5万元现金，并有较高可能性归还本金</li>
+						<li><input type="radio" name="seven" value="6"> C. 有25%的机会赢取50万元现金，并有一定的可能性损失本金</li>
+						<li><input type="radio" name="seven" value="8"> D. 有10%的机会赢取100万元现金，并有价高可能性损失本金</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>8. 投资于理财、股票、基金等金融投资品（不含存款和国债）时，您可接受的最长投资期限是多久？</strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="eight" value="2"> A. 1年以下</li>
+						<li><input type="radio" name="eight" value="4"> B. 1－3年</li>
+						<li><input type="radio" name="eight" value="6"> C. 3—5年</li>
+						<li><input type="radio" name="eight" value="8"> D. 5年以上</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>9. 您的投资目的是 ？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="nine" value="2"> A. 资产保值</li>
+						<li><input type="radio" name="nine" value="4"> B. 资产稳健增值</li>
+						<li><input type="radio" name="nine" value="6"> C. 资产迅速增值</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>10. 您的投资出现何种程度的波动时，您会呈现明显的焦虑？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="ten" value="2"> A. 本金无损失，但收益未达预期</li>
+						<li><input type="radio" name="ten" value="4"> B. 出现轻微本金损失</li>
+						<li><input type="radio" name="ten" value="6"> C. 出现轻微本金损失</li>
+						<li><input type="radio" name="ten" value="8"> D. 出现轻微本金损失</li>
+						<li><input type="radio" name="ten" value="10"> E. 本金50％以上损失</li>
+					</ul>
+				</div>	
+				<div class="col-lg-offset-2">	
+					<span class="text-warning"><strong>11. 对您而言，保本比高收益更为重要？ </strong></span>
+					<ul style="list-style: none">
+						<li><input type="radio" name="eleven" value="2"> A. 非常同意</li>
+						<li><input type="radio" name="eleven" value="4"> B. 同意</li>
+						<li><input type="radio" name="eleven" value="6"> C. 无所谓</li>
+						<li><input type="radio" name="eleven" value="8"> D. 不同意</li>
+						<li><input type="radio" name="eleven" value="10"> E. 非常不同意</li>
+					</ul>
+				</div>	
+				<div class="form-group">
+					<label class="sr-only"></label>
+					<div class="col-lg-2 col-lg-offset-5">
+					<input type="submit" class="form-control btn btn-success" value="提交">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="page-bottom">
+			<div class="row">
+				<label class="col-lg-4 sr-only">尾部</label>
+				<div class="col-lg-8 col-lg-offset-2">
+					<p class="text-center">版权所有 @ 2019晓证券股份有限公司版权所有</p>
+					<p class="text-center">All Rights Reserved @ 2019 Xiao Securities Co., Ltd. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+	<script type="text/javascript">
+            var vm = new Vue({
+                el:'#box',
+                data:{
+                	userIdentification:{},
+                	education:[],
+                	domicile:""
+                },
+                methods:{
+                    get:function(){
+                        //发送get请求
+                        this.$http.post("/getJsonObject.action").then(function(result){
+                        	this.userIdentification=result.data.userIdentification;
+                        	console.log(this.userIdentification);
+                        	this.education = result.data.education;
+                        	 console.log(this.education);
+                        },function(){
+                            console.log('请求失败处理');
+                        });
+                    },
+                    CheckItem:function(even){
+                    	if(even.target.checked){
+                    		this.domicile = this.userIdentification.userAddress;
+                    	}else{
+                    		this.domicile = ""; 
+                    	}
+                    },
+                    
+                   
+                },
+              	mounted(){
+                    this.get();
+             	},
+	           watch: { 
+	           	     pageSize:function(){
+	           	    	 this.pageIndex=1;
+	           	    	 this.get();
+	           	     }
+	           	  }, 
+             	/* 计算url */
+             	computed: {
+   					 // 计算属性的 getter
+   					 url: function () {
+      				// `this` 指向 vm 实例
+     				 return 'http://10.1.13.155:8080/Xiao-ClientOpenAccount/user/queryUser.action?pageIndex='+this.pageIndex+"&username="+this.username+"&pageSize="+this.pageSize
+   				 }
+ 			 }
+            });  
+   </script>
+</body>		

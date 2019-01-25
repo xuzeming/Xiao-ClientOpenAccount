@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.EducationMapper">
+	
+	<select id="selectEducation" resultType="Education">
+		select id,education_name educationName  from education
+	</select>
+</mapper>	

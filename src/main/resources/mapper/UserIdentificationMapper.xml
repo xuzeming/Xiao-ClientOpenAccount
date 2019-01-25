@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.mapper.UserIdentificationMapper">
+	<insert id="insertUserIdentification" parameterType="UserIdentification">
+		insert into User_Identification(Identification_ID,User_Id,User_Name,User_Sex,user_Nation,user_address,Sign_Agency,Start_Time,End_Time,Front_Img,Back_Img,user_birthday) 
+		values(#{identificationId},#{userId},#{userName},#{userSex},#{userNation},#{userAddress},#{signAgency},#{startTime},#{endTime},#{frontImg},#{backImg},#{userBirthday})
+	</insert>
+	<update id="updateupdateUserIdentification" parameterType="UserIdentification">
+		update User_Identification set user_name=#{userName},user_sex=#{userSex},
+		user_nation = #{userNation},user_address=#{userAddress},sign_agency=#{signAgency},start_time=#{startTime},end_time=#{endTime},
+		user_birthday = #{userBirthday}
+		where identification_id = #{identificationId}
+	</update>
+</mapper>	

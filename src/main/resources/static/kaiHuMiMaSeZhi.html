@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="http://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+	
+	 <script type="text/javascript">
+		$(function(){
+			/* 提交表单的判断  */
+			$("#submitBtn").click(function(){
+				if ($("#pro").val()==-1) {
+					alert("请选择省份");
+					return ;
+				}
+			}) 
+		})
+	</script> 
+</head>
+<body>
+<div id="box">
+	<div class="container " >
+	    <div class="row well">
+	        <div class="col-md-12"><img src="img/upload.png"></div>
+	    </div>
+	    <u style="font-size:20px">开户密码设置</u><br/><br/>
+	    <div class="col-md-offset-3">
+	    <form class="form-horizontal" role="form" action="http://10.1.13.155:8080/Xiao-ClientOpenAccount/savePwdAndOrg.action" method="post">
+	        <div class="form-group ">
+	            <label for="firstpassword" class="col-sm-2 control-label">交易密码</label>
+	            <div class="col-sm-4 col-xs-4 ">
+	                <input type="password" class="form-control" v-model="transationPwd" id="transationPwd" name="transationPwd" placeholder="请输入6位数字密码" pattern="^[0-9]{6}$" required>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="lastpassword" class="col-sm-2 control-label">确认交易密码</label>
+	            <div class="col-sm-4 col-xs-4">
+	                <input type="password" class="form-control" id="lastpassword" placeholder="请确认密码" pattern="^[0-9]{6}$" required>
+	            </div>
+	        </div>
+	
+	        <label class="radio-inline">
+	            <input type="radio" name="optionsRadiosinline" v-on:click="CheckItem" id="optionsRadios3" value="">
+	            <h4>设置交易密码和资金密码相同</h4>
+	        </label>
+	        <br><br>
+	        <div class="form-group">
+	            <label class="col-sm-2 control-label">资金密码</label>
+	            <div class="col-sm-4 col-xs-4">
+	                <input type="password" class="form-control" v-model="transpwd" id="capitalPwd" name="capitalPwd" placeholder="请输入6位数字密码"  pattern="^[0-9]{6}$" required>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-2 control-label">确认资金密码</label>
+	            <div class="col-sm-4 col-xs-4">
+	                <input type="password" class="form-control" id="password2" v-model="retranspwd" placeholder="请输入密码" pattern="^[0-9]{6}$" required>
+	            </div>
+	        </div>
+	        <ul>
+	            <li>请选择营业厅</li>
+	        </ul>
+	        <div class="form-group">
+	         	 <div class="col-sm-1 text-center">
+	                    省     
+	            </div> 
+	            <div class="col-sm-2">
+	                <select class="form-control" id=""  @change="changePro($event)">         
+	                    <option value="-1">请选择</option>
+	                    <option  v-for="p in provinces" :value="p.provinceId">{{p.province}}</option>
+	                </select>     
+	            </div>   
+	            <div class="col-sm-1 text-center">
+	                    市      
+	            </div>   
+	            <div class="col-sm-2">
+	                <select class="form-control" name="City" id="City" :disabled="citiesIsAble" @change="changeCities($event)">
+	                    <option value="-1">请选择</option>
+	                    <option :value="c.cityId" v-for="c in cities">{{c.city}}</option>
+	                </select>   
+	            </div>   
+	            <div class="col-sm-1 text-center" >
+	                   县/区    
+	            </div>   
+	            <div class="col-sm-2">
+	                <select class="form-control" name="Village" id="Village" :disabled="areaIsAble"  @change="changeArea($event)">   
+	                    <option value="-1">请选择</option>
+	                    <option :value="a.areaId" v-for="a in area">{{a.area}}</option>
+	                </select>   
+	            </div>
+	            
+	             <div class="col-sm-1 text-center">
+	                   营业厅    
+	            </div>   
+	            <div class="col-sm-2">
+	                <select class="form-control" name="orgId" id="orgId" :disabled="orgIsAble" >   
+	                    <option value="-1">请选择</option>
+	                    <option :value="o.orgId" v-for="o in orgInfo">{{o.orgName}}</option>
+	                </select>   
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <div class="col-md-offset-3">
+	                <button type="submit" id="submitBtn" class="btn btn-primary btn-lg col-md-2">提交</button>
+	            </div>
+	        </div>
+	    </form>
+	    <br><br><br><br><br>
+	    <div class="row">
+	        <div class="col-md-12 col-md-offset-2">
+	            <label class="">版权所有 @ 2019晓证券股份有限公司版权所有</label>
+	        </div>
+	    </div>
+	    </div>
+	</div>
+</div>
+	<script type="text/javascript">
+	 $(function(){
+		 var transationPwd=document.getElementById("transationPwd");
+		 var lastpassword=document.getElementById("lastpassword");
+		 var capitalPwd=document.getElementById("capitalPwd");
+		 var password2=document.getElementById("password2");
+		 
+			capitalPwd.onblur=function(){
+			        if(capitalPwd.validity.patternMismatch){ 
+			        	capitalPwd.setCustomValidity("请输入6位数字密码");
+			        }
+			};
+			
+			password2.onblur=function(){
+			        if (capitalPwd.value!=password2.value) {
+			        	password2.setCustomValidity("两次输入资金密码必须一致");
+					}
+			};
+			/* 交易密码 */
+			transationPwd.onblur=function(){
+		        if(transationPwd.validity.patternMismatch){ 
+		        	transationPwd.setCustomValidity("请输入6位数字密码");
+		        }
+			};
+			lastpassword.onblur=function(){
+		        if (lastpassword.value!=transationPwd.value) {
+		        	lastpassword.setCustomValidity("两次输入交易密码必须一致");
+				}
+			};
+	 })
+		
+	</script>
+		
+
+	<script type="text/javascript">
+            var vm = new Vue({
+                el:'#box',
+                data:{
+                	provinces:[],
+                	cities:[],
+                	area:[],
+                	orgInfo:[],
+                	areaIsAble:true,
+                	citiesIsAble:true,
+                	orgIsAble:true,
+                	transpwd:"",
+                	transationPwd:"",
+                	retranspwd:""
+                },
+                methods:{
+                    get:function(){
+                        //发送get请求
+                        this.$http.post("http://10.1.13.155:8080/Xiao-ClientOpenAccount/getProAndCitieAndCountAndOrg.action").then(function(result){
+                        this.provinces = result.data.provinces;
+                        },function(){
+                            console.log('请求失败处理');
+                        });
+                    },
+                    changePro:function(event){
+                    	if (event.target.value!=-1) {
+                    		this.citiesIsAble = false;
+                   		 	this.$http.post("http://10.1.13.155:8080/Xiao-ClientOpenAccount/getCities.action?provinceId="+event.target.value).then(function(result){
+                            	this.cities = result.data;
+                            },function(){
+                                console.log('请求失败处理');
+                            });
+						}else{
+							this.citiesIsAble = true;
+							this.areaIsAble = true;
+							this.orgIsAble = true;
+						}
+                    	
+                    },
+                    changeCities:function(event){
+                    	if (event.target.value!=-1) {
+                    		this.areaIsAble = false;
+                   		 	this.$http.post("http://10.1.13.155:8080/Xiao-ClientOpenAccount/getArea.action?citiesId="+event.target.value).then(function(result){
+                            	this.area = result.data;
+                            },function(){
+                                console.log('请求失败处理');
+                            });
+						}else{
+							this.areaIsAble = true;
+							this.orgIsAble = true;
+						}
+                    },
+                    changeArea:function(event){
+                    	if (event.target.value!=-1) {
+                    		this.orgIsAble = false;
+                   		 	this.$http.post("http://10.1.13.155:8080/Xiao-ClientOpenAccount/getOrgInfo.action?areaId="+event.target.value).then(function(result){
+                            	this.orgInfo = result.data;
+                            },function(){
+                                console.log('请求失败处理');
+                            });
+						}else{
+							this.orgIsAble = true;
+						}
+                    },
+                    /* 勾选即自动填写密码   */
+                    CheckItem:function(even){
+                    	if(even.target.checked){
+                    		this.transpwd = this.transationPwd;
+                    		this.retranspwd =this.transationPwd;
+                    	}else{
+                    		this.transpwd = ""; 
+                    		this.retranspwd = "";
+                    	}
+                    },
+                },
+              	mounted(){
+                    this.get();
+             	},
+	          
+            });  
+   </script>
+</body>
+</html>

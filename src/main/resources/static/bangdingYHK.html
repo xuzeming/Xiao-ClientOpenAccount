@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/60miao.js" type="text/javascript" charset="utf-8"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://10.1.13.155:8080/Xiao-ClientOpenAccount/js/60miao.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row well">
+        <div class="col-md-12">
+            <img src="img/upload.png">
+        </div>
+    </div>
+    <h4>新增银行卡绑定</h4><br>
+<form action="http://10.1.13.155:8080/Xiao-ClientOpenAccount/saveBankCard.action" method="post">
+    <div class="col-md-offset-2 ">
+   <!--  <div>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="option1" checked> 选项 1
+                    <img src="img/3a111c33f812b4abad7c0bb178c7fc1.jpg">
+                </label>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios2"  value="option2"> 选项 2
+                    <img src="img/3dd55c56f3830f5342ec1348dce46a2.jpg">
+                </label>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios3"  value="option2"> 选项 3
+                    <img src="img/3ebc6b11c54e21725c69a9bbcee11e8.jpg">
+                </label>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 选项 4
+                    <img src="img/5b726cfab47f912178b80f62f35b87d.jpg">
+                </label>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios5"  value="option2"> 选项 5
+                    <img src="img/71ceaae7844ba1b7faa07df636c42ab.jpg">
+                </label>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios6"  value="option2"> 选项 6
+                    <img src="img/9a5f749c45302ab09e1a31dd32eb9ce.jpg">
+                </label>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios7"  value="option2"> 选项 7
+                    <img src="img/dd0c3fa7c57e4e5d675daa85625b777.jpg">
+                </label>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <label class="radio-inline">
+                    <input type="radio" name="optionsRadiosinline" id="optionsRadios8"  value="option2"> 选项 8
+                    <img src="img/e7a3e39c2229b509a2e2fd3756163cd.jpg">
+                </label>
+            </div>
+            <div class="col-xs-2 col-md-2">
+                <label>更多银行</label>
+                <div class="form-group">
+                    <select class="form-control"  placeholder="请选择">
+                        <option value="2">花旗银行</option>
+                        <option value="2">渣打银行</option>
+                        <option value="2">兴业银行</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        </div> -->
+
+		<div class="container" >
+		    <div class="row">
+		        <div class="form-group col-sm-4 col-xs-4">
+		            <label >持卡人</label>
+		            <input type="text" class="form-control" placeholder="Text input" required="required" name="cardOwner">
+		        </div>
+		        <div class="form-group col-sm-4 col-xs-4">
+		            <label >银行卡号</label>
+		            <input type="text" class="form-control" placeholder="Text input" required="required" name="cardNum">
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="form-group col-sm-3 col-xs-3">
+		            <label >手机号</label>
+		            <input type="text" class="form-control" name="cardTel" placeholder="Text input" required="required" name="cardTel">
+		        </div>
+		        <div class="form-group col-sm-1 col-xs-1">
+		        	<label ></label>
+		            <input type="button"  onclick="settime(this)" value="获取验证码">
+		        </div>
+		        <div class="form-group col-sm-4 col-xs-4">
+		            <label >验证码</label>
+		            <input type="text" class="form-control" name="sendCard" placeholder="Text input" required="required">
+		        </div>
+		    </div>
+		</div>
+		    <br><br>
+		    <div class="form-group">
+		        <div class="col-md-offset-4">     	
+		            <button type="submit" class="btn btn-primary btn-lg">绑定银行卡</button>
+		        </div>
+		    </div>
+		</div>
+</form>
+<br><br>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <label class="">版权所有 @ 2019晓证券股份有限公司版权所有</label>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

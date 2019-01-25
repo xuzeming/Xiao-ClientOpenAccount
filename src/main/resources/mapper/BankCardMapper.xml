@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.BankCardMapper">
+	
+	<select id="selectBankCardByNameAndTelAndBankNum" resultType="BankCard">
+		select card_id cardID,  card_num cardNum,card_type cardType,card_Owner cardOwner  from BANK_CARD where card_owner = #{0} and card_num = #{1} and card_tel =#{2}
+	</select>
+	
+	
+</mapper>	

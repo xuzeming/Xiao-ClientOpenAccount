@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.OrgInfoMapper">
+	
+	<select id="selectOrgInfo" resultType="OrgInfo">
+		 select org_id orgId,area_Id areaId,org_Name orgName , a_1  a1 from Org_Info
+	</select>
+	
+	
+	<select id="selectOrgInfoByAreaId" resultType="OrgInfo">
+		 select org_id orgId,area_Id areaId,org_Name orgName , a_1  a1 from Org_Info where area_id = #{0}
+	</select>
+	
+	<!--根据用户id查询  -->
+	<select id="selectOrgInfoByUserId" resultType="OrgInfo">
+		select org_name orgName,A_1 a1 from org_info  where  org_id  in ( 
+
+		select org_id orgId from user_account where  user_id = #{userId} )
+	</select>
+</mapper>	

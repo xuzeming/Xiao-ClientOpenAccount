@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.UserAccountMapper">
+	
+	<insert id="insertUserAccount" parameterType="UserAccount">
+		insert into  User_Account(account_id,user_Id,transation_pwd,capital_pwd,org_id) 
+		values(sq_account_id.nextval,#{userId},#{transationPwd},#{capitalPwd},#{orgId})
+	</insert>
+</mapper>	

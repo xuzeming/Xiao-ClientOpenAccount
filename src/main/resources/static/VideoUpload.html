@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频上传</title>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/VideoUpload.css">
+    <script src="http://10.1.13.155:8080/js/jquery.min.js"></script>
+    <script src="http://10.1.13.155:8080/bootstrap.min.js"></script>
+    <!--引入js-->
+    <script src="http://10.1.13.155:8080/js/videoUpload.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header" >
+                <img id="headImg" src="img/upload.png"/>
+            </div>
+        </div>
+    </nav>
+
+    <div class="" style="text-align: center;margin-top: 50px;">
+        <span class="glyphicon glyphicon-send  " aria-hidden="true" style="font-size: 30px;">视频上传</span>
+    </div>
+
+    <div id="videoContent" >
+        <video  class="videoPath"  src="2ad8cd7d-99ec-4c12-b861-26aa91cec0f6.ogg" width="320" height="240" controls >
+            <!--<source class="videoPath" src="" type="video/mp4">
+            <source class="videoPath" src="" type="video/ogg">
+            <source  class="videoPath" src="" type="video/webm">
+            <object class="videoPath" data="" width="320" height="240">
+                <embed  class="videoPath" src="" width="320" height="240">
+            </object>-->
+        </video>
+    </div>
+    <form role="form" class="form-group" id="frm" method="post" action="http://10.1.13.155:8080/uploadVideo.action" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="sr-only">选择文件</label>
+            <input type="file" id="fileInput"  placeholder="请选择上传的视频" name="uploadVideoFile" required="required">
+            <br>
+            <button type="submit" class="btn btn-primary col-md-3 ">提交</button>
+            <button type="reset" class="btn btn-success col-md-3 col-sm-offset-1">重新选择</button>
+            <img alt="" src="http://10.1.13.155:8080/static/1fc0f3b0-09d9-4a9f-b03e-ef9366b44bb0.jpg">
+        </div>
+    </form>
+</body>
+</html>

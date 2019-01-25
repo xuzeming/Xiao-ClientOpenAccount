@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.AreaMapper">
+	
+	<select id="selectArea" resultType="Area">
+		select a_id aId ,area_id areaId ,area ,city_Id cityId from Area
+	</select>
+	<!-- 根据城市id查询区县 -->
+	<select id="selectAreaByCitiesId" resultType="Area">
+		select a_id aId ,area_id areaId ,area ,city_Id cityId from Area where city_id = #{0}
+	</select>
+	
+</mapper>	

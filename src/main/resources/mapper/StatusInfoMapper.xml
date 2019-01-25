@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.StatusInfoMapper">
+	<insert id="insertStatusInfo" parameterType="StatusInfo">
+	 insert into STATUS_INFO(open_status_id,user_id,IDENTITY_AUDIT,INFO_AUDIT,VIEW_AUDIT,OPEN_ACCOUNT,SUBMIT_TIME)
+	 values(SQ_Open_Status_ID.nextVal,#{userId},0,0,0,0,sysdate) 
+	</insert>
+	
+	<select id="selectStatusInfo" resultType="StatusInfo">
+		select  identity_Audit identityAudit,info_Audit infoAudit,view_Audit viewAudit from   status_info  where user_id = #{0}
+	</select>
+</mapper>	

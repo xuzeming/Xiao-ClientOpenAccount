@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.mapper.UserBaseInfoMapper">
+	<insert id="insertUserBaseInfo" parameterType="UserBaseInfo">
+		insert into User_Base_Info(base_id,user_id,user_industry,
+		user_profession,account_beneficiary,account_controller,bad_record,
+		tax_status,tel_num,contact_address,zip_code,user_education)  
+		values(sq_base_id.nextval,#{userId},#{userIndustry},#{userProfession},#{accountBeneficiary},#{accountController},#{badRecord},#{taxStatus},#{telNum},#{contactAddress},#{zipCode},#{userEducation})
+	</insert>
+	
+	<!-- 插入 -->
+	<update id="updateUserBaseInfoForSaveEstimateScore" parameterType="UserBaseInfo">
+		update User_Base_Info set risk_score = #{riskScore} where user_id = #{userId}
+	</update>
+	
+	<update id="updateupdateUserBaseInfo" parameterType="UserBaseInfo">
+		update User_Base_Info set view_name = #{viewName} where user_id = #{userId}
+	</update>
+	
+</mapper>	

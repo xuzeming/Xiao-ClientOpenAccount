@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.UserBankCardMapper">
+	
+	<insert id="insertUserBankCard" parameterType="UserBankCard" >
+		insert into user_bank_card(card_Id,user_id,card_Type) values(#{cardId},#{userId},#{cardType})
+	</insert>
+	
+</mapper>	

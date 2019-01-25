@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zl.mapper.CitiesMapper">
+	
+	<select id="selectCities" resultType="Cities">
+		select c_id cid,city_id cityId,city,province_Id provinceId from Cities
+	</select>
+	
+	<select id="selectCitiesById" resultType="Cities" >
+		select c_id cid,city_id cityId,city,province_Id provinceId from Cities where province_Id = #{0}
+	</select>
+</mapper>	
